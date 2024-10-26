@@ -1,23 +1,252 @@
-/* src/pages/Home.css */
-
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
     color: #ffffff;
     margin: 0;
     padding: 0;
-    background-color: #000000;
-    overflow-x: hidden;
+    background-color: #000000; /* Black background */
+    overflow-x: hidden; /* Prevent horizontal scroll */
     background-image: url('../../public/assets/header-bg.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: cover; /* Makes the image cover the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
 }
 
+/* Main Flex Container for Header and Slider */
 .main-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
     padding: 20px;
-    gap: 30px;
+    box-sizing: border-box;
+    gap: 30px; /* Space between left content and slider */
 }
+
+/* Left Side Content (Header, Buttons) */
+.left-content {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px; /* Extra padding for better alignment */
+}
+
+/* Header Styling */
+header {
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0;
+    color: #ffffff;
+    text-transform: uppercase; /* Optional: Uppercase text */
+    letter-spacing: 2px; /* Optional: Spacing between letters */
+}
+
+h2 {
+    font-size: 24px;
+    margin: 10px 0 30px;
+    color: #ffffff;
+    font-weight: 300; /* Light font weight */
+}
+
+/* Download Buttons Container */
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the buttons */
+    margin-top: 20px;
+}
+
+/* Download Badges */
+.download-badge {
+    width: 200px;
+    height: auto;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.download-badge:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Individual Button Styling */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: 2px solid transparent; /* Optional: border to show hover effect */
+}
+
+.button img.button-logo {
+    width: 24px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Hover Effect for Buttons */
+.button:hover {
+    background-color: #e0e0e0;
+    border-color: #ffffff; /* Add a white border on hover */
+}
+
+/* Slider Container */
+.slider {
+    position: relative;
+    max-width: 600px; /* Maximum width for the slider */
+    overflow: hidden;
+    flex: 1;
+}
+
+/* Styling for Images inside the Slider */
+.slide img {
+    width: 100%;
+    max-width: 250px; /* Control maximum width of images */
+    height: auto;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Default Slide Hidden */
+.slide {
+    display: none;
+}
+
+/* Fade In Effect for Slides */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+/* Navigation Arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+    z-index: 1; /* Ensure arrows are on top of content */
+}
+
+/* Left Arrow */
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Right Arrow */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Hover Effect for Navigation Arrows */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 50px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+footer a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect for Footer Links */
+footer a:hover {
+    color: #e0e0e0;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 10px;
+        text-align: center;
+    }
+
+    .slider {
+        max-width: 90%; /* Reduce slider width on smaller screens */
+        margin: 20px 0;
+    }
+
+    h1 {
+        font-size: 36px; /* Adjust heading size */
+    }
+
+    h2 {
+        font-size: 18px; /* Adjust subheading size */
+    }
+
+    .download-badge {
+        width: 150px; /* Smaller badge size on mobile */
+    }
+
+    .button {
+        padding: 10px 20px; /* Adjust button padding */
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .slide img {
+        max-width: 180px; /* Adjust image width */
+    }
+}
+
+.contact-container {
+    text-align: center;
+    text-decoration: none;
+    background-color: rgba(104, 104, 104, 0.3); /* White background with 80% opacity */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    max-width: 400px;
+    width: 100%;
+
+    a {
+        color: #007BFF; /* Link color */
+        text-decoration: none; /* No underline */
+    }
+
+    a:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
+}
+
