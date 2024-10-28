@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css'; // Adjust the path if necessary
 
-const ContactUs = () => {
+const Contact = () => {
     return (
         <div className="main-content" style={{justifyContent: 'center'}}>
             <div className="contact-container">
@@ -15,4 +15,4 @@ const ContactUs = () => {
     );
 }
 
-export default ContactUs;
+export default Contact;
