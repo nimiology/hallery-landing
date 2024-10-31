@@ -12,11 +12,11 @@ const validatePasswords = (password, confirmPassword) => {
 
 function ResetPassword() {
     const navigate = useNavigate(); // Initialize the useNavigate hook
-
     const {uid, token} = useParams();
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false); // Loading state
 
     // Handle password input changes
     const handlePasswordChange = (e) => {
@@ -33,7 +33,8 @@ function ResetPassword() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!error && password && confirmPassword) {
+        if (password === confirmPassword) {
+            setLoading(true); // Start loading
             try {
                 const response = await fetch('https://api.hallery.art/auth/users/reset_password_confirm/', {
                     method: 'POST',
@@ -47,18 +48,21 @@ function ResetPassword() {
                     }),
                 });
 
+                setLoading(false); // Stop loading after request is done
+
                 if (response.status === 204) {
-                    navigate('/success'); // Redirect to the login page (or another route)
-                    // Handle success (e.g., redirect to login)
+                    navigate('/success'); // Redirect to the success page
                 } else {
+                    setLoading(false); // Stop loading if an error occurs
                     const responseBody = await response.json(); // Parse the response as JSON
-                    // Format error messages
                     const formattedErrors = Object.entries(responseBody).map(([key, value]) => {
                         return `${key}: ${value[0]}`; // Get the first error message for the key
                     }).join('\n'); // Join all error messages into a single string
-                    setError(formattedErrors); // Set the formatted error messages}
+                    setError(formattedErrors); // Set the formatted error messages
+
                 }
             } catch (error) {
+                setLoading(false); // Stop loading if an error occurs
                 console.error("Error:", error);
                 setError("An unexpected error occurred.");
             }
@@ -95,7 +99,10 @@ function ResetPassword() {
 
                     {error && <p className='p-error'>{error}</p>}
 
-                    <button type="submit" disabled={!!error}>Reset Password</button>
+                    <button type="submit" style={{backgroundColor: loading ? 'gray' : '#3498db', color: 'white'}}
+                            disabled={!!error || loading}>
+                        {loading ? <div className='spinnerStyle'></div> : 'Reset Password'}
+                    </button>
                 </form>
             </div>
         </div>
