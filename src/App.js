@@ -9,7 +9,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/forget-password" element={<ForgetPassword />} />
+                <Route path="/forget-password/:uid/:token/" element={<ForgetPassword />} />
                 <Route path="/contact" element={<Contact />} />
             </Routes>
         </Router>
