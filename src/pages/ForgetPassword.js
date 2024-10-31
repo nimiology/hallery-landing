@@ -38,11 +38,11 @@ function ResetPassword() {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        uid,
-                        token,
-                        password,
-                    }),
+                    body: {
+                        "uid": uid,
+                        "token": token,
+                        "new_password": password
+                    }
                 });
 
                 if (response.status === 204) {
