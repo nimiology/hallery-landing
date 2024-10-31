@@ -33,7 +33,7 @@ function ResetPassword() {
         e.preventDefault();
         if (!error && password && confirmPassword) {
             try {
-                const response = await fetch('https://api.hallery.art/auth/users/reset_password_confirmation/', {
+                const response = await fetch('https://api.hallery.art/auth/users/reset_password_confirm/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -45,18 +45,15 @@ function ResetPassword() {
                     }),
                 });
 
-                if (response.status === 201) {
+                if (response.status === 204) {
                     alert("Password has been reset successfully!");
                     // Handle success (e.g., redirect to login)
-                } else if (response.status === 401) {
-                    alert("User not found. Please check your link.");
-                    // Handle not found error
-                } else {
-                    alert("An error occurred. Please try again.");
+                }else {
+                    setError(response.text);
                 }
             } catch (error) {
                 console.error("Error:", error);
-                alert("An unexpected error occurred.");
+                setError("An unexpected error occurred.");
             }
         }
     };
