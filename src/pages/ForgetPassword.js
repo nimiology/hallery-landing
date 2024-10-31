@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './ForgetPassword.css';
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 
 // Utility function for password validation
 const validatePasswords = (password, confirmPassword) => {
@@ -11,6 +11,8 @@ const validatePasswords = (password, confirmPassword) => {
 };
 
 function ResetPassword() {
+    const navigate = useNavigate(); // Initialize the useNavigate hook
+
     const {uid, token} = useParams();
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -46,10 +48,15 @@ function ResetPassword() {
                 });
 
                 if (response.status === 204) {
-                    alert("Password has been reset successfully!");
+                    navigate('/success'); // Redirect to the login page (or another route)
                     // Handle success (e.g., redirect to login)
-                }else {
-                    setError(response.text);
+                } else {
+                    const responseBody = await response.json(); // Parse the response as JSON
+                    // Format error messages
+                    const formattedErrors = Object.entries(responseBody).map(([key, value]) => {
+                        return `${key}: ${value[0]}`; // Get the first error message for the key
+                    }).join('\n'); // Join all error messages into a single string
+                    setError(formattedErrors); // Set the formatted error messages}
                 }
             } catch (error) {
                 console.error("Error:", error);
