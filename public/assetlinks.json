@@ -1,7 +1,7 @@
 [{
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
-    "namespace": "Hallery",
+    "namespace": "android_app",
     "package_name": "art.hallery.hallery",
     "sha256_cert_fingerprints":
     ["00:47:48:5D:E6:95:47:EE:34:F7:F4:96:02:9F:24:11:D6:D6:A2:86:31:62:A4:44:B3:3C:09:34:6F:A9:53:5F"]
