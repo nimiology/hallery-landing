@@ -26,6 +26,12 @@
   margin-bottom: 15px;
   border: 2px solid #fff; /* Optional border */
 }
+.artwork-thumbnail {
+  height: 35%;
+  border-radius: 10px; /* Makes the image circular */
+  object-fit: cover;
+  margin-bottom: 25px;
+}
 
 .username {
   font-size: 24px;
