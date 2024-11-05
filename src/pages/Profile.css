@@ -1,0 +1,57 @@
+/* Profile Page Styling */
+
+.profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000; /* Background color */
+}
+
+.profile-container {
+  text-align: center;
+  padding: 30px;
+  padding-right: 100px;
+  padding-left: 100px;
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 2px solid #fff; /* Optional border */
+}
+
+.username {
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+}
+
+.name {
+  font-size: 18px;
+  color: #aaa; /* Lighter color for name */
+  margin: 0 0 40px;
+}
+
+.open-app-button {
+  padding: 10px 30px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.open-app-button:hover {
+  background-color: #0056b3;
+}
