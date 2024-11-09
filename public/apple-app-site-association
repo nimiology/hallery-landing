@@ -7,12 +7,8 @@
           "J76439C79J.art.hallery.hallery"
         ],
         "paths": [
-          "*"
-        ],
-        "components": [
-          {
-            "/": "/*"
-          }
+          "/profile/*",
+          "/artwork/*"
         ]
       }
     ]
