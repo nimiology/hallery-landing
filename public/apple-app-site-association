@@ -8,9 +8,7 @@
         ],
         "paths": [
           "/profile/*",
-          "/artwork/*",
-          "/profile/*/",
-          "/artwork/*/"
+          "/artwork/*"
         ]
       }
     ]
