@@ -1,13 +1,13 @@
 {
   "applinks": {
-  "paths": [
+    "details": [
+      {
+        "appIDs": ["J76439C79J.art.hallery.hallery"],
+        "paths": [
           "NOT /reset-password/*",
           "/profile/*",
           "/artwork/*"
         ],
-    "details": [
-      {
-        "appIDs": ["J76439C79J.art.hallery.hallery"],
         "components": [
           {
             "/": "/profile/*",
