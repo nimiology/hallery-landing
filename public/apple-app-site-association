@@ -1,21 +1,27 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
-        "appIDs": [
-          "J76439C79J.art.hallery.hallery"
-        ],
-        "paths": [
-          "/profile/*",
-          "/artwork/*"
+        "appIDs": ["J76439C79J.art.hallery.hallery"],
+        "components": [
+          {
+            "/": "/profile/*",
+            "comment": "Allows links under /profile/ to open in the app."
+          },
+          {
+            "/": "/artwork/*",
+            "comment": "Allows links under /artwork/ to open in the app."
+          },
+          {
+            "/": "/reset-password/*",
+            "exclude": true,
+            "comment": "Excludes /reset-password/ links from opening in the app."
+          }
         ]
       }
     ]
   },
   "webcredentials": {
-    "apps": [
-          "J76439C79J.art.hallery.hallery"
-    ]
+    "apps": ["J76439C79J.art.hallery.hallery"]
   }
 }
